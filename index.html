@@ -1,20 +1,262 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Tharak Website</title>
-</head>
-<body>
-    <h1> i am tharak</h1>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trim To Trend</title>
 
-  <p> this is our new website!</p>
-<h2> about me </h2>
-<p>learning frontend developer</p>
-<h2>skills</p>
-<ul>
-html
-css
-java script
-</ul>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#0f172a;
+    color:white;
+}
+
+header{
+    padding:20px 10%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#111827;
+    position:sticky;
+    top:0;
+}
+
+.logo{
+    color:#06b6d4;
+    font-size:28px;
+    font-weight:bold;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:20px;
+}
+
+.hero{
+    height:90vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
+}
+
+.hero h1{
+    font-size:60px;
+    color:#06b6d4;
+    animation:fadeIn 2s;
+}
+
+.hero p{
+    font-size:22px;
+    margin-top:15px;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:25px;
+    padding:12px 25px;
+    background:#06b6d4;
+    color:white;
+    text-decoration:none;
+    border-radius:30px;
+    transition:0.3s;
+}
+
+.btn:hover{
+    transform:scale(1.1);
+}
+
+section{
+    padding:80px 10%;
+}
+
+.section-title{
+    text-align:center;
+    font-size:40px;
+    margin-bottom:40px;
+    color:#06b6d4;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:#1e293b;
+    padding:30px;
+    border-radius:15px;
+    transition:0.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+.card h3{
+    margin-bottom:15px;
+    color:#06b6d4;
+}
+
+.team{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.member{
+    background:#1e293b;
+    padding:30px;
+    border-radius:15px;
+    text-align:center;
+}
+
+.member h3{
+    color:#06b6d4;
+}
+
+.contact{
+    text-align:center;
+}
+
+.instagram-btn{
+    display:inline-block;
+    margin-top:20px;
+    padding:15px 30px;
+    background:#E1306C;
+    color:white;
+    text-decoration:none;
+    border-radius:40px;
+    transition:0.3s;
+}
+
+.instagram-btn:hover{
+    transform:scale(1.1);
+}
+
+footer{
+    text-align:center;
+    padding:20px;
+    background:#111827;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">TRIM TO TREND</div>
+    <nav>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#team">Team</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h1>YOUR VISION, OUR EDIT</h1>
+    <p>Professional Video Editing, Script Writing & Voice Over Services</p>
+    <a href="#contact" class="btn">Get Started</a>
+</section>
+
+<section id="about">
+    <h2 class="section-title">About Us</h2>
+    <p style="text-align:center;font-size:18px;">
+        Trim To Trend is a creative content studio founded by
+        Tharak and Iswanth. We help creators, influencers,
+        businesses and brands transform raw footage into
+        engaging and professional content.
+    </p>
+</section>
+
+<section id="services">
+    <h2 class="section-title">Our Services</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>🎬 Video Editing</h3>
+            <p>Professional editing for Reels, Shorts and YouTube videos.</p>
+        </div>
+
+        <div class="card">
+            <h3>✍️ Script Writing</h3>
+            <p>Creative scripts that grab attention and increase engagement.</p>
+        </div>
+
+        <div class="card">
+            <h3>🎙️ Voice Over</h3>
+            <p>Telugu & English voice overs for brands and creators.</p>
+        </div>
+
+        <div class="card">
+            <h3>📱 Social Media Content</h3>
+            <p>Content creation support for Instagram, YouTube and more.</p>
+        </div>
+
+    </div>
+</section>
+
+<section id="team">
+    <h2 class="section-title">Meet Our Team</h2>
+
+    <div class="team">
+
+        <div class="member">
+            <h3>Tharak</h3>
+            <p> DOP & Content Strategist</p>
+        </div>
+
+        <div class="member">
+            <h3>Iswanth</h3>
+            <p>Script Writer , creative editor & Voice Over Artist</p>
+        </div>
+
+    </div>
+</section>
+
+<section id="contact">
+    <h2 class="section-title">Contact Us</h2>
+
+    <div class="contact">
+        <p>Let's create amazing content together.</p>
+
+        <a href="https://www.instagram.com/trim_to_trend"
+           target="_blank"
+           class="instagram-btn">
+           📸 Instagram
+        </a>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 Trim To Trend | Founded by Tharak & Iswanth</p>
+</footer>
 
 </body>
 </html>
