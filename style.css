@@ -501,36 +501,251 @@ width:100%;
 text-align:center;
 
 }
+   /* ===========================
+   PART 3 - PREMIUM UI
+=========================== */
 
+/* Portfolio */
+
+.portfolio{
+padding:120px 8%;
+text-align:center;
 }
-.logo{
+
+.portfolio-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:30px;
+margin-top:60px;
+}
+
+.portfolio-card{
+background:rgba(255,255,255,.05);
+border-radius:20px;
+overflow:hidden;
+transition:.5s;
+border:1px solid rgba(255,255,255,.08);
+}
+
+.portfolio-card img{
+width:100%;
+height:220px;
+object-fit:cover;
+transition:.5s;
+}
+
+.portfolio-card:hover img{
+transform:scale(1.08);
+}
+
+.portfolio-card:hover{
+transform:translateY(-12px);
+box-shadow:0 0 30px rgba(0,212,255,.25);
+}
+
+.portfolio-card h3{
+padding:20px 0 10px;
+font-size:24px;
+}
+
+.portfolio-card p{
+padding:0 20px 20px;
+}
+
+/* Team */
+
+.team{
+padding:120px 8%;
+text-align:center;
+}
+
+.team-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:35px;
+margin-top:60px;
+}
+
+.team-card{
+background:rgba(255,255,255,.05);
+padding:30px;
+border-radius:20px;
+transition:.5s;
+}
+
+.team-card img{
+width:150px;
+height:150px;
+border-radius:50%;
+object-fit:cover;
+margin-bottom:20px;
+border:4px solid #00d4ff;
+}
+
+.team-card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 25px rgba(0,212,255,.3);
+}
+
+.team-card h3{
+margin-bottom:10px;
+}
+
+.team-card p{
+opacity:.8;
+}
+
+/* Statistics */
+
+.stats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:30px;
+margin-top:80px;
+text-align:center;
+}
+
+.stat-box{
+padding:30px;
+background:rgba(255,255,255,.05);
+border-radius:20px;
+}
+
+.stat-box h2{
+font-size:45px;
+color:#00d4ff;
+}
+
+.stat-box p{
+margin-top:10px;
+}
+
+/* FAQ */
+
+.faq{
+padding:120px 8%;
+}
+
+.faq-item{
+background:rgba(255,255,255,.05);
+margin:20px 0;
+padding:20px;
+border-radius:15px;
+transition:.4s;
+}
+
+.faq-item:hover{
+background:rgba(255,255,255,.08);
+}
+
+.faq-item h3{
+margin-bottom:10px;
+}
+
+/* Social Icons */
+
+.social{
 display:flex;
-align-items:center;
-gap:12px;
+justify-content:center;
+gap:20px;
+margin-top:40px;
 }
 
-.logo img{
+.social a{
 width:55px;
 height:55px;
-border-radius:12px;
-}
-
-.hero{
 display:flex;
-justify-content:space-between;
+justify-content:center;
 align-items:center;
-gap:60px;
+background:#111;
+border-radius:50%;
+font-size:22px;
+color:white;
+transition:.4s;
+text-decoration:none;
 }
 
-.hero-image img{
-width:420px;
-max-width:100%;
-animation:float 4s ease-in-out infinite;
-filter:drop-shadow(0 0 30px #00d4ff);
+.social a:hover{
+background:#00d4ff;
+transform:translateY(-8px);
 }
 
-@keyframes float{
-0%{transform:translateY(0);}
-50%{transform:translateY(-15px);}
-100%{transform:translateY(0);}
+/* WhatsApp Button */
+
+.whatsapp{
+position:fixed;
+bottom:100px;
+right:30px;
+width:60px;
+height:60px;
+border-radius:50%;
+background:#25D366;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:30px;
+color:white;
+text-decoration:none;
+box-shadow:0 0 20px rgba(0,0,0,.4);
+z-index:999;
+transition:.4s;
 }
+
+.whatsapp:hover{
+transform:scale(1.15);
+}
+
+/* Animation */
+
+@keyframes fadeUp{
+
+0%{
+opacity:0;
+transform:translateY(50px);
+}
+
+100%{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+.fade-up{
+animation:fadeUp 1s ease forwards;
+}
+
+/* Mobile */
+
+@media(max-width:600px){
+
+.hero h1{
+font-size:34px;
+}
+
+.logo h2{
+font-size:24px;
+}
+
+section{
+padding:70px 20px;
+}
+
+.portfolio-grid,
+.team-grid{
+grid-template-columns:1fr;
+}
+
+.contact-box{
+padding:20px;
+}
+
+.whatsapp{
+right:20px;
+bottom:90px;
+}
+
+}
+
+}
+
