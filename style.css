@@ -503,3 +503,34 @@ text-align:center;
 }
 
 }
+.logo{
+display:flex;
+align-items:center;
+gap:12px;
+}
+
+.logo img{
+width:55px;
+height:55px;
+border-radius:12px;
+}
+
+.hero{
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:60px;
+}
+
+.hero-image img{
+width:420px;
+max-width:100%;
+animation:float 4s ease-in-out infinite;
+filter:drop-shadow(0 0 30px #00d4ff);
+}
+
+@keyframes float{
+0%{transform:translateY(0);}
+50%{transform:translateY(-15px);}
+100%{transform:translateY(0);}
+}
