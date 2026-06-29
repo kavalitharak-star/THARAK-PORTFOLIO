@@ -1,262 +1,543 @@
-/* ===========================
-   THARAK PORTFOLIO
-   APPLE STYLE CSS
-=========================== */
+/* ==========================================
+   TRIM TO TREND
+   PREMIUM JAVASCRIPT
+   PART 1
+========================================== */
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-scroll-behavior:smooth;
+// =========================
+// YEAR
+// =========================
+
+const year = document.getElementById("year");
+
+if(year){
+
+year.textContent = new Date().getFullYear();
+
 }
 
-body{
-background:#050505;
-color:#fff;
-overflow-x:hidden;
+// =========================
+// TYPING EFFECT
+// =========================
+
+const typing = document.getElementById("typing");
+
+const words = [
+
+"Professional Video Editing",
+
+"YouTube Editing",
+
+"Instagram Reels",
+
+"Motion Graphics",
+
+"Cinematic Editing",
+
+"Thumbnail Design"
+
+];
+
+let wordIndex = 0;
+
+let charIndex = 0;
+
+let deleting = false;
+
+function typeEffect(){
+
+if(!typing) return;
+
+const current = words[wordIndex];
+
+if(!deleting){
+
+typing.textContent = current.substring(0,charIndex);
+
+charIndex++;
+
+if(charIndex > current.length){
+
+deleting = true;
+
+setTimeout(typeEffect,1200);
+
+return;
+
 }
 
-/* Loader */
-
-.loader{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:#000;
-display:flex;
-justify-content:center;
-align-items:center;
-z-index:9999;
-transition:.8s;
 }
 
-.loader h1{
-font-size:60px;
-letter-spacing:10px;
-color:white;
+else{
+
+typing.textContent = current.substring(0,charIndex);
+
+charIndex--;
+
+if(charIndex < 0){
+
+deleting = false;
+
+wordIndex++;
+
+if(wordIndex >= words.length){
+
+wordIndex = 0;
+
 }
 
-/* Navbar */
-
-nav{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-padding:20px 8%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-background:rgba(255,255,255,.08);
-backdrop-filter:blur(15px);
-z-index:1000;
-transition:.4s;
 }
 
-nav.active{
-background:#111;
-box-shadow:0 0 20px rgba(255,255,255,.1);
 }
 
-.logo h2{
-font-size:30px;
-font-weight:700;
-color:#fff;
+setTimeout(typeEffect,deleting ? 45 : 90);
+
 }
 
-nav ul{
-display:flex;
-list-style:none;
-gap:35px;
+typeEffect();
+
+// =========================
+// COUNTER
+// =========================
+
+const counters = document.querySelectorAll(".count");
+
+const speed = 200;
+
+counters.forEach(counter=>{
+
+const update = ()=>{
+
+const target = +counter.dataset.target;
+
+const current = +counter.innerText;
+
+const increment = target / speed;
+
+if(current < target){
+
+counter.innerText = Math.ceil(current + increment);
+
+setTimeout(update,15);
+
 }
 
-nav ul li a{
-color:white;
-text-decoration:none;
-font-size:17px;
-transition:.3s;
+else{
+
+counter.innerText = target;
+
 }
 
-nav ul li a:hover{
-color:#00d4ff;
 }
 
-.btn{
-display:inline-block;
-padding:14px 30px;
-border-radius:40px;
-background:linear-gradient(45deg,#00d4ff,#0072ff);
-color:white;
-text-decoration:none;
-font-weight:600;
-transition:.4s;
-border:none;
-cursor:pointer;
-overflow:hidden;
-position:relative;
+update();
+
+});
+
+// =========================
+// SCROLL TO TOP
+// =========================
+
+const topBtn = document.getElementById("topBtn");
+
+window.addEventListener("scroll",()=>{
+
+if(window.scrollY > 400){
+
+topBtn.style.display="block";
+
 }
 
-.btn:hover{
-transform:translateY(-5px);
-box-shadow:0 0 30px #00d4ff;
+else{
+
+topBtn.style.display="none";
+
 }
 
-/* Hero */
+});
 
-.hero{
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-text-align:center;
-padding:40px;
-background:
-radial-gradient(circle at top,#1b1b1b,#050505);
+topBtn.addEventListener("click",()=>{
+
+window.scrollTo({
+
+top:0,
+
+behavior:"smooth"
+
+});
+
+});
+
+// =========================
+// NAVBAR SHADOW
+// =========================
+
+const nav = document.querySelector("nav");
+
+window.addEventListener("scroll",()=>{
+
+if(window.scrollY>50){
+
+nav.style.background="rgba(0,0,0,.75)";
+
+nav.style.boxShadow="0 10px 30px rgba(0,0,0,.35)";
+
 }
 
-.hero-content{
-max-width:900px;
+else{
+
+nav.style.background="rgba(0,0,0,.45)";
+
+nav.style.boxShadow="none";
+
 }
 
-.hero h1{
-font-size:65px;
-font-weight:800;
-line-height:1.2;
-margin-bottom:20px;
+});
+/* ==========================================
+   PREMIUM JAVASCRIPT
+   PART 2
+========================================== */
+
+// =========================
+// SCROLL REVEAL
+// =========================
+
+const reveals = document.querySelectorAll(
+".about-card,.service,.portfolio-card,.team-card,.counter-box,.testimonial-card,.faq-item,.contact-card"
+);
+
+const revealOnScroll = ()=>{
+
+const trigger = window.innerHeight * 0.85;
+
+reveals.forEach(item=>{
+
+const top = item.getBoundingClientRect().top;
+
+if(top < trigger){
+
+item.style.opacity="1";
+
+item.style.transform="translateY(0)";
+
 }
 
-.hero p{
-font-size:20px;
-opacity:.8;
-margin-bottom:35px;
+});
+
+};
+
+reveals.forEach(item=>{
+
+item.style.opacity="0";
+
+item.style.transform="translateY(70px)";
+
+item.style.transition="all .8s ease";
+
+});
+
+window.addEventListener("scroll",revealOnScroll);
+
+revealOnScroll();
+
+// =========================
+// ACTIVE NAV LINK
+// =========================
+
+const sections = document.querySelectorAll("section");
+
+const navLinks = document.querySelectorAll("nav ul li a");
+
+window.addEventListener("scroll",()=>{
+
+let current="";
+
+sections.forEach(section=>{
+
+const top = section.offsetTop-150;
+
+const height = section.offsetHeight;
+
+if(scrollY>=top){
+
+current = section.getAttribute("id");
+
 }
 
-.hero-buttons{
-display:flex;
-justify-content:center;
-gap:20px;
-flex-wrap:wrap;
+});
+
+navLinks.forEach(link=>{
+
+link.classList.remove("active");
+
+if(link.getAttribute("href")==="#"+current){
+
+link.classList.add("active");
+
 }
 
-/* Sections */
+});
 
-section{
-padding:110px 8%;
+});
+
+// =========================
+// BUTTON RIPPLE EFFECT
+// =========================
+
+const buttons=document.querySelectorAll(".btn,.btn2");
+
+buttons.forEach(button=>{
+
+button.addEventListener("mousemove",(e)=>{
+
+const rect=button.getBoundingClientRect();
+
+const x=e.clientX-rect.left;
+
+const y=e.clientY-rect.top;
+
+button.style.setProperty("--x",x+"px");
+button.style.setProperty("--y",y+"px");
+
+});
+
+});
+
+// =========================
+// IMAGE PARALLAX
+// =========================
+
+window.addEventListener("scroll",()=>{
+
+const logo=document.querySelector(".hero-logo img");
+
+if(logo){
+
+logo.style.transform=`translateY(${window.scrollY*0.08}px)`;
+
 }
 
-section h2{
-font-size:42px;
-margin-bottom:30px;
-text-align:center;
+});
+
+// =========================
+// PRELOADER (OPTIONAL)
+// =========================
+
+window.addEventListener("load",()=>{
+
+const loader=document.querySelector(".loader");
+
+if(loader){
+
+loader.style.opacity="0";
+
+setTimeout(()=>{
+
+loader.style.display="none";
+
+},500);
+
 }
 
-section p{
-font-size:18px;
-line-height:1.8;
-text-align:center;
+});
+
+// =========================
+// CONSOLE MESSAGE
+// =========================
+
+console.log(
+"%cTrim To Trend 🚀",
+"color:#00c6ff;font-size:24px;font-weight:bold;"
+);
+
+console.log(
+"%cWebsite Developed by Tharak & Iswanth",
+"color:white;font-size:16px;"
+);
+/* ==========================================
+   TRIM TO TREND
+   PREMIUM JAVASCRIPT
+   PART 3 (FINAL)
+========================================== */
+
+// =========================
+// MOUSE GLOW EFFECT
+// =========================
+
+const glow = document.createElement("div");
+
+glow.style.position = "fixed";
+glow.style.width = "250px";
+glow.style.height = "250px";
+glow.style.borderRadius = "50%";
+glow.style.pointerEvents = "none";
+glow.style.background =
+"radial-gradient(circle, rgba(0,198,255,.18), transparent 70%)";
+glow.style.transform = "translate(-50%,-50%)";
+glow.style.zIndex = "-1";
+glow.style.transition = "left .08s linear, top .08s linear";
+
+document.body.appendChild(glow);
+
+document.addEventListener("mousemove",(e)=>{
+
+glow.style.left = e.clientX + "px";
+
+glow.style.top = e.clientY + "px";
+
+});
+
+// =========================
+// HERO FLOAT EFFECT
+// =========================
+
+const heroLogo = document.querySelector(".hero-logo img");
+
+if(heroLogo){
+
+setInterval(()=>{
+
+heroLogo.animate([
+
+{
+
+transform:"translateY(0px)"
+
+},
+
+{
+
+transform:"translateY(-12px)"
+
+},
+
+{
+
+transform:"translateY(0px)"
+
 }
 
-/* Cards */
+],{
 
-.about-grid,
-.service-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:30px;
-margin-top:50px;
+duration:3500,
+
+iterations:1,
+
+easing:"ease-in-out"
+
+});
+
+},3500);
+
 }
 
-.card,
-.service-card{
-background:rgba(255,255,255,.08);
-border:1px solid rgba(255,255,255,.1);
-padding:35px;
-border-radius:20px;
-text-align:center;
-transition:.4s;
-backdrop-filter:blur(20px);
+// =========================
+// SMOOTH SCROLL LINKS
+// =========================
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
+
+anchor.addEventListener("click",function(e){
+
+e.preventDefault();
+
+const target=document.querySelector(this.getAttribute("href"));
+
+if(target){
+
+target.scrollIntoView({
+
+behavior:"smooth"
+
+});
+
 }
 
-.card:hover,
-.service-card:hover{
-transform:translateY(-12px);
-box-shadow:0 0 25px rgba(0,212,255,.3);
-}
+});
 
-.card i,
-.service-card i{
-font-size:45px;
-margin-bottom:20px;
-color:#00d4ff;
-}
+});
 
-/* Portfolio */
+// =========================
+// CARD HOVER SOUND (OPTIONAL)
+// =========================
 
-.portfolio{
-text-align:center;
-}
+const cards=document.querySelectorAll(
 
-/* Contact */
+".about-card,.service,.portfolio-card,.team-card"
 
-.contact-box{
-max-width:450px;
-margin:25px auto;
-padding:30px;
-background:rgba(255,255,255,.08);
-border-radius:20px;
-}
+);
 
-/* Footer */
+cards.forEach(card=>{
 
-footer{
-padding:25px;
-text-align:center;
-background:#111;
-}
+card.addEventListener("mouseenter",()=>{
 
-/* Scroll Button */
+card.style.transition=".35s";
 
-#topBtn{
-position:fixed;
-bottom:30px;
-right:30px;
-width:55px;
-height:55px;
-border:none;
-border-radius:50%;
-background:#00d4ff;
-color:white;
-font-size:22px;
-cursor:pointer;
-display:none;
-}
+});
 
-/* Reveal */
+});
 
-.reveal{
-opacity:0;
-transform:translateY(60px);
-transition:1s;
-}
+// =========================
+// RANDOM GLOW
+// =========================
 
-.reveal.show{
-opacity:1;
-transform:translateY(0);
-}
+setInterval(()=>{
 
-/* Cursor Glow */
+document.body.style.filter="brightness(1.02)";
 
-.cursor-glow{
-position:fixed;
-width:25px;
-height:25px;
-border-radius:50%;
-background:#00d4ff;
-pointer-events:none;
-filter:blur(18px);
-transform:translate(-50%,-50%);
-z-index:999;
-}
+setTimeout(()=>{
+
+document.body.style.filter="brightness(1)";
+
+},300);
+
+},12000);
+
+// =========================
+// PAGE LOADED
+// =========================
+
+window.addEventListener("load",()=>{
+
+document.body.style.opacity="1";
+
+});
+
+// =========================
+// DISABLE RIGHT CLICK
+// (REMOVE IF YOU DON'T WANT)
+// =========================
+
+// document.addEventListener("contextmenu",(e)=>{
+
+// e.preventDefault();
+
+// });
+
+// =========================
+// DISABLE IMAGE DRAG
+// =========================
+
+document.querySelectorAll("img").forEach(img=>{
+
+img.draggable=false;
+
+});
+
+// =========================
+// DEVELOPER CREDIT
+// =========================
+
+console.log("====================================");
+
+console.log(" Trim To Trend ");
+
+console.log(" Professional Website ");
+
+console.log(" Developed by Tharak & Iswanth ");
+
+console.log("====================================");
+
+// =========================
+// END
+// =========================
