@@ -541,3 +541,295 @@ console.log("====================================");
 // =========================
 // END
 // =========================
+/* ==========================================
+   TRIM TO TREND
+   PREMIUM JAVASCRIPT
+   PART 4
+========================================== */
+
+// =========================
+// LOADER FADE
+// =========================
+
+window.addEventListener("load",()=>{
+
+document.body.classList.add("loaded");
+
+});
+
+// =========================
+// PARALLAX HERO
+// =========================
+
+window.addEventListener("scroll",()=>{
+
+const hero=document.querySelector(".hero");
+
+if(hero){
+
+hero.style.backgroundPositionY=window.scrollY*0.4+"px";
+
+}
+
+});
+
+// =========================
+// IMAGE ZOOM
+// =========================
+
+const portfolio=document.querySelectorAll(".portfolio-card img");
+
+portfolio.forEach(image=>{
+
+image.addEventListener("mouseenter",()=>{
+
+image.style.transform="scale(1.08)";
+
+});
+
+image.addEventListener("mouseleave",()=>{
+
+image.style.transform="scale(1)";
+
+});
+
+});
+
+// =========================
+// BUTTON GLOW
+// =========================
+
+const allButtons=document.querySelectorAll(".btn,.btn2");
+
+allButtons.forEach(button=>{
+
+button.addEventListener("mouseenter",()=>{
+
+button.style.boxShadow="0 0 30px rgba(0,198,255,.6)";
+
+});
+
+button.addEventListener("mouseleave",()=>{
+
+button.style.boxShadow="none";
+
+});
+
+});
+
+// =========================
+// SECTION FADE
+// =========================
+
+const observer=new IntersectionObserver(entries=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("show");
+
+}
+
+});
+
+},{threshold:0.15});
+
+document.querySelectorAll("section").forEach(section=>{
+
+observer.observe(section);
+
+});
+
+// =========================
+// SCROLL PROGRESS BAR
+// =========================
+
+const progress=document.createElement("div");
+
+progress.style.position="fixed";
+
+progress.style.top="0";
+
+progress.style.left="0";
+
+progress.style.height="4px";
+
+progress.style.background="#00c6ff";
+
+progress.style.zIndex="99999";
+
+progress.style.width="0%";
+
+document.body.appendChild(progress);
+
+window.addEventListener("scroll",()=>{
+
+const total=document.documentElement.scrollHeight-window.innerHeight;
+
+const current=(window.scrollY/total)*100;
+
+progress.style.width=current+"%";
+
+});
+
+// =========================
+// PAGE TITLE EFFECT
+// =========================
+
+let title=document.title;
+
+window.addEventListener("blur",()=>{
+
+document.title="👋 Come Back to Trim To Trend";
+
+});
+
+window.addEventListener("focus",()=>{
+
+document.title=title;
+
+});
+
+// =========================
+// END
+// =========================
+
+console.log("Website Loaded Successfully 🚀");
+/* ==========================================
+   FINAL PREMIUM POLISH
+========================================== */
+
+/* Active Navbar */
+
+nav ul li a.active{
+
+color:#00c6ff;
+
+font-weight:600;
+
+}
+
+/* Logo */
+
+.logo img{
+
+transition:.4s;
+
+}
+
+.logo img:hover{
+
+transform:rotate(8deg) scale(1.08);
+
+}
+
+/* Hero */
+
+.hero{
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.hero::before{
+
+content:"";
+
+position:absolute;
+
+width:600px;
+
+height:600px;
+
+background:radial-gradient(circle,rgba(0,198,255,.08),transparent);
+
+top:-250px;
+
+right:-150px;
+
+border-radius:50%;
+
+}
+
+.hero::after{
+
+content:"";
+
+position:absolute;
+
+width:500px;
+
+height:500px;
+
+background:radial-gradient(circle,rgba(0,114,255,.08),transparent);
+
+bottom:-250px;
+
+left:-150px;
+
+border-radius:50%;
+
+}
+
+/* Card Animation */
+
+.about-card,
+.service,
+.portfolio-card,
+.team-card,
+.counter-box,
+.testimonial-card,
+.contact-card{
+
+animation:fadeUp .8s ease both;
+
+}
+
+/* Button */
+
+.btn,
+.btn2{
+
+cursor:pointer;
+
+}
+
+/* Selection */
+
+::selection{
+
+background:#00c6ff;
+
+color:#fff;
+
+}
+
+/* Focus */
+
+input:focus,
+textarea:focus{
+
+outline:none;
+
+border-color:#00c6ff;
+
+}
+
+/* Footer */
+
+footer{
+
+border-top:1px solid rgba(255,255,255,.08);
+
+}
+
+/* Smooth */
+
+html{
+
+scroll-behavior:smooth;
+
+}
