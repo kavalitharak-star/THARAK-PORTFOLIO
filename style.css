@@ -1302,3 +1302,41 @@ height:50px;
 }
 
 }
+/* Coming Soon Portfolio */
+
+.coming-card{
+
+max-width:700px;
+margin:50px auto;
+padding:50px;
+text-align:center;
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.08);
+border-radius:25px;
+backdrop-filter:blur(15px);
+
+}
+
+.coming-card i{
+
+font-size:70px;
+color:#00c6ff;
+margin-bottom:25px;
+
+}
+
+.coming-card h3{
+
+font-size:36px;
+margin-bottom:20px;
+
+}
+
+.coming-card p{
+
+font-size:18px;
+line-height:1.8;
+opacity:.85;
+margin-bottom:30px;
+
+}
