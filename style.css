@@ -1540,3 +1540,84 @@ display:none;
 }
 
 }
+/* ==========================
+LOADER
+========================== */
+
+.loader{
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+height:100vh;
+
+background:#050505;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+z-index:999999;
+
+transition:.8s;
+
+}
+
+.loader-logo{
+
+text-align:center;
+
+}
+
+.loader-logo img{
+
+width:120px;
+
+height:120px;
+
+border-radius:50%;
+
+animation:spin 2s linear infinite;
+
+}
+
+.loader-logo h2{
+
+margin-top:20px;
+
+font-size:36px;
+
+}
+
+.loader-logo p{
+
+opacity:.7;
+
+margin-top:10px;
+
+}
+
+.loaded .loader{
+
+opacity:0;
+
+visibility:hidden;
+
+}
+
+@keyframes spin{
+
+100%{
+
+transform:rotate(360deg);
+
+}
+
+}
