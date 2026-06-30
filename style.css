@@ -1340,3 +1340,26 @@ opacity:.85;
 margin-bottom:30px;
 
 }
+/* CONTACT PREMIUM */
+
+.contact-card{
+
+padding:50px;
+
+}
+
+.contact-card i{
+
+font-size:65px;
+
+color:#00c6ff;
+
+margin-bottom:25px;
+
+}
+
+.contact-card .btn{
+
+margin-top:20px;
+
+}
