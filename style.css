@@ -1363,3 +1363,128 @@ margin-bottom:25px;
 margin-top:20px;
 
 }
+/* ==========================================
+   PREMIUM FOOTER
+========================================== */
+
+.footer{
+
+background:#080808;
+
+padding:70px 8% 30px;
+
+}
+
+.footer-container{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+gap:40px;
+
+}
+
+.footer h2{
+
+color:#00c6ff;
+
+margin-bottom:15px;
+
+}
+
+.footer h3{
+
+margin-bottom:15px;
+
+color:white;
+
+}
+
+.footer p{
+
+opacity:.8;
+
+line-height:1.8;
+
+}
+
+.footer-links{
+
+display:flex;
+
+flex-direction:column;
+
+}
+
+.footer-links a{
+
+text-decoration:none;
+
+color:white;
+
+margin:8px 0;
+
+transition:.3s;
+
+}
+
+.footer-links a:hover{
+
+color:#00c6ff;
+
+padding-left:8px;
+
+}
+
+.footer-social a{
+
+display:inline-flex;
+
+justify-content:center;
+
+align-items:center;
+
+width:50px;
+
+height:50px;
+
+margin-right:12px;
+
+background:#111;
+
+border-radius:50%;
+
+font-size:22px;
+
+color:white;
+
+text-decoration:none;
+
+transition:.4s;
+
+}
+
+.footer-social a:hover{
+
+background:#00c6ff;
+
+transform:translateY(-5px);
+
+}
+
+.footer hr{
+
+margin:40px 0 20px;
+
+border:1px solid rgba(255,255,255,.08);
+
+}
+
+.copyright{
+
+text-align:center;
+
+opacity:.7;
+
+}
